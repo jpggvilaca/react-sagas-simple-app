@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import ProductList from './ProductList';
+import Menu from './uis/Menu';
 
 class App extends Component {
   render() {
     return (
       <main>
-        <ProductList />
+        <Menu />
       </main>
     );
   }

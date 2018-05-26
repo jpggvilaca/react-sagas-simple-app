@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { array } from 'prop-types';
 
-import Product from './Product';
-import EmptyState from './EmptyState';
+import Product from 'components/Product/Product';
+import EmptyState from 'components/EmptyState';
 
+// Remove this
 const mockData = [
-  {
+    {
     "icon_url" : "https://assets.chucknorris.host/img/avatar/chuck-norris.png",
     "id" : "xzXTcsuuS1-6zmkNzcfp4A",
     "url" : "https://api.chucknorris.io/jokes/xzXTcsuuS1-6zmkNzcfp4A",
@@ -15,13 +16,13 @@ const mockData = [
     "icon_url" : "https://assets.chucknorris.host/img/avatar/chuck-norris.png",
     "id" : "xzXTcsuuS1-6zmkNzcfp4A",
     "url" : "https://api.chucknorris.io/jokes/xzXTcsuuS1-6zmkNzcfp4A",
-    "value" : "Chuck Norris wears a size 2 ballet slipper."
+    "value" : "Chuck Norris wears a size 2 ballet slipper. - 2"
   },
   {
     "icon_url" : "https://assets.chucknorris.host/img/avatar/chuck-norris.png",
     "id" : "xzXTcsuuS1-6zmkNzcfp4A",
     "url" : "https://api.chucknorris.io/jokes/xzXTcsuuS1-6zmkNzcfp4A",
-    "value" : "Chuck Norris wears a size 2 ballet slipper."
+    "value" : "Chuck Norris wears a size 2 ballet slipper. - 3"
   }
 ];
 
@@ -32,15 +33,14 @@ class ProductList extends Component {
   renderList = () => {
     const { products } = this.props;
 
-    if (!products.length) { return <EmptyState />; }
+    if (!mockData.length) { return <EmptyState />; }
 
     return (
       <ul>
         {
-          products.map(({ value, icon_url }, i) => (
-            <li>
+          mockData.map(({ value, icon_url }, i) => (
+            <li key={`product-${i}`}>
               <Product
-                key={`product-${i}`}
                 description={value}
                 bg={icon_url}
               />
@@ -51,8 +51,8 @@ class ProductList extends Component {
     );
   }
 
-render() {
-  return (
+  render() {
+    return (
       <div>
         { this.renderList() }
       </div>
