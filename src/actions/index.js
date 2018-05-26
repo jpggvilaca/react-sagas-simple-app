@@ -1,13 +1,14 @@
-import { FETCH_PRODUCTS, FETCH_SUCCESS, FETCH_ERROR } from '../constants';
+import {
+  FETCH_PRODUCTS,
+  FETCH_SUCCESS,
+  FETCH_ERROR,
+  SELECT_PRODUCT
+} from '../constants';
 
-export function fetchProducts(text) {
+export const fetchProducts = text => {
   return { type: FETCH_PRODUCTS, text }
-}
+};
 
-// export function toggleTodo(index) {
-//   return { type: TOGGLE_TODO, index }
-// }
-// ​
-// export function setVisibilityFilter(filter) {
-//   return { type: SET_VISIBILITY_FILTER, filter }
-// }
+export const selectProduct = product => {
+  return { type: SELECT_PRODUCT, product };
+}

@@ -1,7 +1,7 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 
-import ProductList from './ProductList';
+import { ProductList } from './ProductList';
 
 const mockData = [
     {
@@ -37,11 +37,11 @@ describe('ProductList', () => {
   //   expect()
   // });
 
-  it('render correctly if the list is empty', () => {
-    const wrapper = mount(<ProductList products={[]} />);
-
-    console.log(wrapper);
-  });
+  // it('render correctly if the list is empty', () => {
+  //   const wrapper = mount(<ProductList products={[]} />);
+  //
+  //   console.log(wrapper);
+  // });
 
   // it('render n children given a correct list', () => {
   //   const wrapper = mount(<ProductList products={mockData} />);

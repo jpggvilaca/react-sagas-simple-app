@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { array } from 'prop-types';
 
-import Product from 'components/Product/Product';
-import EmptyState from 'components/EmptyState';
+import Product from 'components//uis/Product/Product';
+import EmptyState from 'components/uis/EmptyState';
 
 // Remove this
 const mockData = [
-    {
+  {
     "icon_url" : "https://assets.chucknorris.host/img/avatar/chuck-norris.png",
     "id" : "xzXTcsuuS1-6zmkNzcfp4A",
     "url" : "https://api.chucknorris.io/jokes/xzXTcsuuS1-6zmkNzcfp4A",
@@ -26,7 +26,7 @@ const mockData = [
   }
 ];
 
-class ProductList extends Component {
+export class ProductList extends Component {
   static propTypes = { products: array };
   static defaultProps = { products: [] };
 
@@ -37,13 +37,9 @@ class ProductList extends Component {
 
     return (
       <ul>
-        {
-          mockData.map(({ value, icon_url }, i) => (
+        {mockData.map((product, i) => (
             <li key={`product-${i}`}>
-              <Product
-                description={value}
-                bg={icon_url}
-              />
+              <Product product={product} />
             </li>
           ))
         }

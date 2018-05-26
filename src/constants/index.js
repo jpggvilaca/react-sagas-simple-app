@@ -1,3 +1,4 @@
 export const FETCH_PRODUCTS = 'FETCH_PRODUCTS';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
 export const FETCH_ERROR = 'FETCH_ERROR';
+export const SELECT_PRODUCT = 'SELECT_PRODUCT';
