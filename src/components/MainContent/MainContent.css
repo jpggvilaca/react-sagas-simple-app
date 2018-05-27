@@ -1,0 +1,5 @@
+.main {
+  background-color: #c2dAd5;
+  height: calc(100vh - 60px); /* 100% of the viewport minus the top navbar */
+  padding: 40px;
+}

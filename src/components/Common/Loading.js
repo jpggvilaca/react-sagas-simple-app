@@ -1,6 +1,8 @@
 import React from 'react';
+import ReactLoading from 'react-loading';
 
-// Make this an animated svg
-const Loading  = () => <div>Loading...</div>;
+const Loading  = () => (
+  <ReactLoading type={'spin'} color={'#333'} height={120} width={120} />
+);
 
 export default Loading;

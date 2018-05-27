@@ -1,0 +1,20 @@
+.navbar {
+  background-color: #c2dAd5;
+  height: 60px;
+  border-bottom: 2px solid #fff;
+}
+
+.links {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  padding: 10px 40px;
+}
+
+.link + .link {
+  margin-left: 40px;
+}
+
+:global(.active) {
+  border-bottom: 1px solid red;
+}

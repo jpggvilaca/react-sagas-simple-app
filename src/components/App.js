@@ -1,12 +1,14 @@
-import React, { Component } from 'react';
-import Menu from './Menu';
+import React, { Component, Fragment } from 'react';
+import Menu from './Menu/Menu';
+import MainContent from './MainContent/MainContent';
 
 class App extends Component {
   render() {
     return (
-      <main>
+      <Fragment>
         <Menu />
-      </main>
+        <MainContent />
+      </Fragment>
     );
   }
 }
