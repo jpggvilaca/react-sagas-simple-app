@@ -12,10 +12,14 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 
 // Store
-import { store, history } from './store';
+import { store, history, persistor } from './store';
+
+// Redux Persist
+import { PersistGate } from 'redux-persist/integration/react';
 
 // Internal components
 import App from './components/App';
+import Loading from './components/Common/Loading';
 
 // Styles
 import './index.css';
@@ -23,7 +27,9 @@ import './index.css';
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <App />
+      <PersistGate loading={<Loading />} persistor={persistor}>
+        <App />
+      </PersistGate>
     </ConnectedRouter>
   </Provider>,
   document.getElementById('root')

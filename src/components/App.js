@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Menu from './uis/Menu';
+import Menu from './Menu';
 
 class App extends Component {
   render() {

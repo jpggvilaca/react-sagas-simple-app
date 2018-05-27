@@ -1,12 +1,33 @@
+// Redux
 import { createStore, applyMiddleware } from 'redux';
-import { routerMiddleware } from 'react-router-redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+
+// React Router
+import { routerMiddleware as createRouterMiddleware } from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
+
+// Redux Saga
+import createSagaMiddleware from 'redux-saga';
+import rootSaga from './sagas';
+
+// Redux Persist
+import { persistStore } from 'redux-persist';
 
 import reducers from './reducers';
 
 export const history = createHistory();
-const middleware = routerMiddleware(history);
+
+// Middleware
+const routerMiddleware = createRouterMiddleware(history);
+const sagaMiddleware = createSagaMiddleware();
+
 export const store = createStore(
   reducers,
-  applyMiddleware(middleware)
+  composeWithDevTools(
+    applyMiddleware(routerMiddleware, sagaMiddleware)
+  )
 );
+
+export const persistor = persistStore(store);
+
+sagaMiddleware.run(rootSaga);

@@ -5,8 +5,9 @@ import {
   SELECT_PRODUCT
 } from '../constants';
 
-export const fetchProducts = text => {
-  return { type: FETCH_PRODUCTS, text }
+export const fetchProducts = products => {
+  console.log('fetchProducts: ', products);
+  return { type: FETCH_PRODUCTS, products };
 };
 
 export const selectProduct = product => {
