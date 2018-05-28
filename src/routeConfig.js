@@ -11,6 +11,11 @@ const ProductPage = Loadable({
   loading: Loading
 });
 
+const Product = Loadable({
+  loader: () => import('./components/Product/Product'),
+  loading: Loading
+});
+
 const Routes = [
   {
     name: 'Home',
@@ -22,6 +27,10 @@ const Routes = [
     name: 'Products',
     path: '/products',
     component: ProductPage,
+  },
+  {
+    path: '/products/:category',
+    component: Product
   }
 ];
 

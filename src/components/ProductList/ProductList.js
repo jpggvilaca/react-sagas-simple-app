@@ -9,6 +9,13 @@ export class ProductList extends Component {
   static propTypes = { products: array };
   static defaultProps = { products: [] };
 
+  triggerProductDetails = e => {
+    const { onSelect } = this.props;
+    const productCategory = e.currentTarget.dataset.id;
+
+    onSelect && onSelect(productCategory);
+  }
+
   renderList = () => {
     const { products } = this.props;
 
@@ -17,7 +24,14 @@ export class ProductList extends Component {
     return (
       <ul className={styles.list}>
         {products.map((product, i) => (
-            <li key={`product-${i}`} className={styles.category}>{product}</li>
+            <li
+              key={`product-${i}`}
+              data-id={product}
+              className={styles.category}
+              onClick={this.triggerProductDetails}
+            >
+              {product}
+            </li>
           ))
         }
       </ul>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchProducts } from 'actions';
+import { fetchProducts, selectProduct } from 'actions';
 
 import ProductList from 'components/ProductList/ProductList';
 import Loading from 'components/Common/Loading';
@@ -8,12 +8,13 @@ import Loading from 'components/Common/Loading';
 import styles from './ProductPage.css';
 
 const mapStateToProps = state => ({
-    isFetching: state.products.isFetching,
-    products: state.products.products
+  isFetching: state.products.isFetching,
+  products: state.products.products
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchProducts: () => dispatch(fetchProducts())
+  fetchProducts: () => dispatch(fetchProducts()),
+  selectProduct: category => dispatch(selectProduct(category))
 });
 
 class ProductPage extends Component {
@@ -27,14 +28,14 @@ class ProductPage extends Component {
   }
 
   render() {
-    const { products, isFetching } = this.props;
+    const { products, isFetching, selectProduct } = this.props;
 
     return (
         isFetching
           ? <Loading />
           : <div className={styles.list}>
               <h2 className={styles.header}>Products By Category</h2>
-              <ProductList products={products} />
+              <ProductList products={products} onSelect={selectProduct} />
             </div>
     );
   }

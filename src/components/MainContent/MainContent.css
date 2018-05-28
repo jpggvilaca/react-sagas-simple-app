@@ -1,12 +1,14 @@
 .main {
+  align-items: center;
   background-color: #c2dAd5;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   height: calc(100vh - 60px); /* 100% of the viewport minus the top navbar */
   padding: 40px;
 }
 
 .main :global(h2) {
+  margin-bottom: 60px;
   text-align: center;
   width: 100%;
 }
