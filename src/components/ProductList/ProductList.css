@@ -1,0 +1,20 @@
+.category {
+  border: 1px solid white;
+  flex: 0 1 20%;
+  margin: 10px;
+  padding: 5px;
+  text-align: center;
+  text-transform: capitalize;
+  transition: all .3s ease-in-out;
+}
+
+.category:hover {
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+}

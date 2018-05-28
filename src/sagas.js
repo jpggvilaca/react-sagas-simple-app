@@ -37,7 +37,7 @@ function* fetchProductsSaga(action) {
   try {
     const productCategories = yield call(fetchProductCategories);
 
-    yield delay(2000); // To simulate slow loading
+    yield delay(1000); // To simulate slow loading
     yield put(fetchedProducts(productCategories.data));
   } catch(err) {
     // error handling here

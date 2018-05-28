@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { array } from 'prop-types';
 
-import Product from 'components/Product/Product';
 import EmptyState from 'components/Common/EmptyState';
+
+import styles from './ProductList.css';
 
 export class ProductList extends Component {
   static propTypes = { products: array };
@@ -14,14 +15,9 @@ export class ProductList extends Component {
     if (!products.length) { return <EmptyState />; }
 
     return (
-      <ul>
+      <ul className={styles.list}>
         {products.map((product, i) => (
-            <li key={`product-${i}`}>
-              {
-                // <Product product={product} />
-              }
-              {product}
-            </li>
+            <li key={`product-${i}`} className={styles.category}>{product}</li>
           ))
         }
       </ul>
@@ -30,9 +26,9 @@ export class ProductList extends Component {
 
   render() {
     return (
-      <div>
+      <Fragment>
         { this.renderList() }
-      </div>
+      </Fragment>
     );
   };
 }

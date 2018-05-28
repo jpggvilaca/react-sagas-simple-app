@@ -8,7 +8,9 @@ import {
   FETCH_PRODUCTS,
   FETCH_PRODUCTS_SUCCESS,
   FETCH_PRODUCTS_ERROR,
-  SELECT_PRODUCT
+  SELECT_PRODUCT,
+  SELECT_PRODUCT_SUCCESS,
+  SELECT_PRODUCT_ERROR
 } from '../constants';
 
 const initialState = {
@@ -26,9 +28,13 @@ export const productReducer = (state = initialState, action) => {
     case FETCH_PRODUCTS_ERROR:
       return { ...state, isFetching: false };
     case SELECT_PRODUCT:
+      return { ...state, isFetching: true };
+    case SELECT_PRODUCT_SUCCESS:
       return { ...state, selectedProduct: action.product };
+    case SELECT_PRODUCT_ERROR:
+      return { ...state, isFetching: false };
     case REHYDRATE:
-      return { ...state, products: action.payload.products };
+      return { ...state, persistedState: action.payload };
     default: {
       return state;
     }
@@ -38,6 +44,7 @@ export const productReducer = (state = initialState, action) => {
 const persistConfig = {
   key: 'root',
   storage,
+  blacklist: ['isFetching']
 }
 
 const reducers = combineReducers({

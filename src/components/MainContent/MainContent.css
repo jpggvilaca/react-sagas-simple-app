@@ -1,5 +1,12 @@
 .main {
   background-color: #c2dAd5;
+  display: flex;
+  flex-wrap: wrap;
   height: calc(100vh - 60px); /* 100% of the viewport minus the top navbar */
   padding: 40px;
+}
+
+.main :global(h2) {
+  text-align: center;
+  width: 100%;
 }

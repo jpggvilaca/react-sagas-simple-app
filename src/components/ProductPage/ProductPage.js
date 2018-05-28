@@ -1,9 +1,11 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchProducts } from 'actions';
 
 import ProductList from 'components/ProductList/ProductList';
 import Loading from 'components/Common/Loading';
+
+import styles from './ProductPage.css';
 
 const mapStateToProps = state => ({
     isFetching: state.products.isFetching,
@@ -16,7 +18,10 @@ const mapDispatchToProps = dispatch => ({
 
 class ProductPage extends Component {
   componentDidMount() {
-    const { fetchProducts } = this.props;
+    const { fetchProducts, products } = this.props;
+
+    // Cache values are available so we avoid fetching new data
+    if (products.length) { return; }
 
     fetchProducts && fetchProducts();
   }
@@ -27,10 +32,10 @@ class ProductPage extends Component {
     return (
         isFetching
           ? <Loading />
-          : <Fragment>
-              <h2>Products By Category</h2>
+          : <div className={styles.list}>
+              <h2 className={styles.header}>Products By Category</h2>
               <ProductList products={products} />
-            </Fragment>
+            </div>
     );
   }
 }

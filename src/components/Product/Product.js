@@ -20,11 +20,12 @@ export class Product extends Component {
   }
 
   render() {
-    const { icon_url, value } = this.props.product;
+    const { icon_url, value, id } = this.props.product;
 
     return (
       <div className="product" onClick={this.handleClick}>
         <span style={{backgroundImage: `url(${icon_url})`}}></span>
+        <p>{id}</p>
         <p>{value}</p>
       </div>
     );
