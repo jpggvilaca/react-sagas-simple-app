@@ -58,8 +58,8 @@ function* fetchSingleMovieSaga(action) {
     const movie = yield call(fetchMovieById, id);
 
     yield delay(1000); // To simulate slow loading
-    yield put(push(`/movies/${id}`));
     yield put(selectedMovie(movie.data));
+    yield put(push(`/movies/${id}`));
   } catch(err) {
     console.log(err);
     yield put(selectMovieError(err));

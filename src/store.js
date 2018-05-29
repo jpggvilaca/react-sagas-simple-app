@@ -30,4 +30,6 @@ export const store = createStore(
 
 export const persistor = persistStore(store);
 
+window.persistor = persistor; // FOR DEBUG ONLY
+
 sagaMiddleware.run(rootSaga);

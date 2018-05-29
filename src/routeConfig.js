@@ -26,6 +26,7 @@ const Routes = [
   {
     name: 'Movies',
     path: '/movies',
+    exact: true,
     component: MoviePage,
   },
   {

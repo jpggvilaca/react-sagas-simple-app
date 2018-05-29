@@ -1,0 +1,17 @@
+.movie > span {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.movie > span:last-child {
+  margin-bottom: 0;
+}
+
+.title {
+  font-size: 24px;
+}
+
+.description {
+  font-size: 18px;
+  margin-top: 40px;
+}
