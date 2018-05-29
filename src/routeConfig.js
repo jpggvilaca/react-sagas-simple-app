@@ -6,13 +6,13 @@ const Home = Loadable({
   loading: Loading
 });
 
-const ProductPage = Loadable({
-  loader: () => import('./components/ProductPage/ProductPage'),
+const MoviePage = Loadable({
+  loader: () => import('./components/MoviePage/MoviePage'),
   loading: Loading
 });
 
-const Product = Loadable({
-  loader: () => import('./components/Product/Product'),
+const Movie = Loadable({
+  loader: () => import('./components/Movie/Movie'),
   loading: Loading
 });
 
@@ -24,13 +24,13 @@ const Routes = [
     component: Home
   },
   {
-    name: 'Products',
-    path: '/products',
-    component: ProductPage,
+    name: 'Movies',
+    path: '/movies',
+    component: MoviePage,
   },
   {
-    path: '/products/:category',
-    component: Product
+    path: '/movies/:id',
+    component: Movie
   }
 ];
 

@@ -2,25 +2,15 @@ import { call, put, takeLatest, all } from 'redux-saga/effects';
 import { push } from 'react-router-redux';
 
 import {
-  fetchedProducts,
-  fetchProductsError,
-  fetchedRandomProduct,
-  fetchedRandomProductError,
-  selectedProduct,
-  selectProductError
+  fetchedMovies,
+  fetchMoviesError,
+  selectedMovie,
+  selectMovieError
 } from 'actions';
 
-import {
-  FETCH_PRODUCTS,
-  FETCH_RANDOM_PRODUCT,
-  SELECT_PRODUCT
-} from './constants';
+import { FETCH_MOVIES, SELECT_MOVIE } from './constants';
 
-import {
-  fetchRandomProduct,
-  fetchProductCategories,
-  fetchProductByCategory
-} from './api';
+import { fetchMovies, fetchMovieById } from './api';
 
 // Simple delay method to fake slow network
 const delay = ms => new Promise(res => setTimeout(res, ms));
@@ -37,7 +27,7 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
 */
 
 // const SAGA_ROUTE_MAP = {
-//   '/products': fetchProductsSaga
+//   '/movies': fetchMoviesSaga
 //   ... other routes here
 // };
 
@@ -50,48 +40,36 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
 //   }
 // }
 
-function* homeSaga() {
+function* fetchMoviesSaga() {
   try {
-    const randomProduct = yield call(fetchRandomProduct);
+    const movieList = yield call(fetchMovies);
 
-    yield put(fetchedRandomProduct(randomProduct.data))
-  } catch (err) {
+    yield delay(1000); // To simulate slow loading
+    yield put(fetchedMovies(movieList.data));
+  } catch(err) {
     console.log(err);
-    yield put(fetchedRandomProductError(err))
+    yield put(fetchMoviesError(err));
   }
 }
 
-function* fetchProductsSaga() {
+function* fetchSingleMovieSaga(action) {
   try {
-    const productCategories = yield call(fetchProductCategories);
+    const { id } = action;
+    const movie = yield call(fetchMovieById, id);
 
     yield delay(1000); // To simulate slow loading
-    yield put(fetchedProducts(productCategories.data));
+    yield put(push(`/movies/${id}`));
+    yield put(selectedMovie(movie.data));
   } catch(err) {
     console.log(err);
-    yield put(fetchProductsError(err));
-  }
-}
-
-function* fetchSingleProductSaga(action) {
-  try {
-    const { category } = action;
-    const product = yield call(fetchProductByCategory, category);
-
-    yield delay(1000); // To simulate slow loading
-    yield put(push(`/products/${category}`));
-    yield put(selectedProduct(product.data));
-  } catch(err) {
-    console.log(err);
-    yield put(selectProductError(err));
+    yield put(selectMovieError(err));
   }
 }
 
 export default function* rootSaga() {
   // yield takeLatest('@@router/LOCATION_CHANGE', navigationSaga);
   yield all([
-    takeLatest(FETCH_RANDOM_PRODUCT, homeSaga),
-    takeLatest(FETCH_PRODUCTS, fetchProductsSaga),
-    takeLatest(SELECT_PRODUCT, fetchSingleProductSaga)
+    takeLatest(FETCH_MOVIES, fetchMoviesSaga),
+    takeLatest(SELECT_MOVIE, fetchSingleMovieSaga)
   ]);
 };

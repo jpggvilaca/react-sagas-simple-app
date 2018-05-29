@@ -5,45 +5,34 @@ import { REHYDRATE } from 'redux-persist/lib/constants';
 import storage from 'redux-persist/lib/storage';
 
 import {
-  FETCH_PRODUCTS,
-  FETCH_PRODUCTS_SUCCESS,
-  FETCH_PRODUCTS_ERROR,
-  SELECT_PRODUCT,
-  SELECT_PRODUCT_SUCCESS,
-  SELECT_PRODUCT_ERROR,
-  FETCH_RANDOM_PRODUCT,
-  FETCH_RANDOM_PRODUCT_SUCCESS,
-  FETCH_RANDOM_PRODUCT_ERROR
+  FETCH_MOVIES,
+  FETCH_MOVIES_SUCCESS,
+  FETCH_MOVIES_ERROR,
+  SELECT_MOVIE,
+  SELECT_MOVIE_SUCCESS,
+  SELECT_MOVIE_ERROR,
 } from '../constants';
 
 const initialState = {
   isFetching: false,
-  products: [],
-  selectedProduct: {},
-  category: '',
-  randomProduct: {}
+  movies: [],
+  selectedMovie: {}
 };
 
-export const productReducer = (state = initialState, action) => {
+export const movieReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_PRODUCTS:
+    case FETCH_MOVIES:
       return { ...state, isFetching: action.isFetching };
-    case FETCH_PRODUCTS_SUCCESS:
-      return { ...state, isFetching: action.isFetching, products: action.products }
-    case FETCH_PRODUCTS_ERROR:
+    case FETCH_MOVIES_SUCCESS:
+      return { ...state, isFetching: action.isFetching, movies: action.movies }
+    case FETCH_MOVIES_ERROR:
       return { ...state, isFetching: action.isFetching };
-    case SELECT_PRODUCT:
-      return { ...state, isFetching: action.isFetching, category: action.category };
-    case SELECT_PRODUCT_SUCCESS:
-      return { ...state, isFetching: action.isFetching, selectedProduct: action.product };
-    case SELECT_PRODUCT_ERROR:
+    case SELECT_MOVIE:
       return { ...state, isFetching: action.isFetching };
-    case FETCH_RANDOM_PRODUCT:
-      return { ...state, isFetching: action.isFetching }
-    case FETCH_RANDOM_PRODUCT_SUCCESS:
-      return { ...state, isFetching: action.isFetching, randomProduct: action.randomProduct }
-    case FETCH_RANDOM_PRODUCT_ERROR:
-      return { ...state, isFetching: action.isFetching }
+    case SELECT_MOVIE_SUCCESS:
+      return { ...state, isFetching: action.isFetching, selectedMovie: action.movie };
+    case SELECT_MOVIE_ERROR:
+      return { ...state, isFetching: action.isFetching };
     case REHYDRATE:
       return state;
     default: {
@@ -60,7 +49,7 @@ const persistConfig = {
 
 const reducers = combineReducers({
   router: routerReducer,
-  products: persistReducer(persistConfig, productReducer)
+  movies: persistReducer(persistConfig, movieReducer)
 });
 
 export default reducers;

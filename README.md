@@ -1,4 +1,4 @@
-# Chuck Norris App
+# Eriks Assignment App
 
 ## Running the project
 * Clone the project
@@ -7,7 +7,6 @@
 
 * Running tests: `npm run test`
 
-## Gotcha
-* I've used the 'product' naming but in this context (using chuck norris api), a 'product' is a 'joke' and 'products' are the 'joke categories'.
+* Api: Ghibli ( https://ghibliapi.herokuapp.com/ )
 
 Note: This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
