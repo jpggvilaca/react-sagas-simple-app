@@ -8,19 +8,20 @@ const mapStateToProps = state => ({
 
 export class Movie extends Component {
   render() {
-    console.log('Movie: ', this.props);
-    // const { icon_url, value, id } = this.props.selectedMovie;
+    const { title, producer, director, description } = this.props.selectedMovie;
 
     return (
       <div className="movie">
-        cenas
+        <span>{title}</span>
+        <span>{producer}</span>
+        <span>{director}</span>
+        <span>{description}</span>
       </div>
     );
   }
 };
 
 Movie.propTypes = { selectedMovie: object };
-Movie.defaultProps = {};
 Movie.displayName = 'Movie';
 
 export default connect(mapStateToProps, null)(Movie);

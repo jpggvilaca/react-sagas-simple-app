@@ -30,7 +30,7 @@ export const movieReducer = (state = initialState, action) => {
     case SELECT_MOVIE:
       return { ...state, isFetching: action.isFetching };
     case SELECT_MOVIE_SUCCESS:
-      return { ...state, isFetching: action.isFetching, selectedMovie: action.movie };
+      return { ...state, isFetching: action.isFetching, selectedMovie: action.selectedMovie };
     case SELECT_MOVIE_ERROR:
       return { ...state, isFetching: action.isFetching };
     case REHYDRATE:
