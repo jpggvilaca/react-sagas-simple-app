@@ -17,4 +17,20 @@
 .list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 1024px) {
+  .movie {
+    flex: 0 1 48%;
+    margin: 5px;
+  }
+}
+
+@media (max-width: 580px) {
+  .movie {
+    flex: 0 1 100%;
+    margin: 6px;
+    padding: 4px;
+  }
 }

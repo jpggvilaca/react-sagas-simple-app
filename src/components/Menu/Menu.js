@@ -11,7 +11,7 @@ const Menu = () => (
     <nav className={styles.navbar}>
       <ul className={styles.links}>
         {Routes.map((route, index) => (
-          <li key={`route-${index}`} className={styles.link}>
+          route.name && <li key={`route-${index}`} className={styles.link}>
             <NavLink exact={route.exact} to={route.path}>{route.name}</NavLink>
           </li>
         ))}

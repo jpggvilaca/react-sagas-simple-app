@@ -14,10 +14,10 @@ export class Movie extends Component {
 
     return (
       <div className={styles.movie}>
-        <span className={styles.title}>Title: {title}</span>
+        <h2 className={styles.title}>Title: {title}</h2>
         <span>Producer: {producer}</span>
         <span>Director: {director}</span>
-        <span className={styles.description}>Description: {description}</span>
+        <p className={styles.description}>Description: {description}</p>
       </div>
     );
   }

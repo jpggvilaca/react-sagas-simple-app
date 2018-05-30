@@ -34,7 +34,7 @@ class MoviePage extends Component {
         isFetching
           ? <Loading />
           : <div className={styles.list}>
-              <h2 className={styles.header}>List of Movies</h2>
+              <h1 className={styles.header}>List of Movies</h1>
               <MovieList movies={movies} onSelect={selectMovie} />
             </div>
     );

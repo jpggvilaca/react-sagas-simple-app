@@ -3,12 +3,32 @@
   background-color: #c2dAd5;
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 60px); /* 100% of the viewport minus the top navbar */
+  height: calc(100vh - 70px); /* 100% of the viewport minus the top navbar */
   padding: 40px;
 }
 
-.main :global(h2) {
+.main :global(h1) {
   margin-bottom: 60px;
   text-align: center;
   width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .main {
+    height: calc(100vh - 45px);
+  }
+
+  .main :global(h1) {
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main {
+    height: calc(100vh - 40px);
+  }
+
+  .main :global(h1) {
+    margin-bottom: 25px;
+  }
 }

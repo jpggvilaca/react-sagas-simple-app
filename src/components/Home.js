@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const Home = () => (
   <Fragment>
-    <h2>Welcome</h2>
+    <h1>Welcome</h1>
     <NavLink to={'/movies'} className="home-link">Go to Movie List</NavLink>
   </Fragment>
 )

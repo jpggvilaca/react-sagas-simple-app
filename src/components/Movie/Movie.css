@@ -15,3 +15,14 @@
   font-size: 18px;
   margin-top: 40px;
 }
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 22px;
+  }
+
+  .description {
+    font-size: 16px;
+    margin-top: 25px;
+  }
+}
