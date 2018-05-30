@@ -22,7 +22,7 @@ class MoviePage extends Component {
     const { fetchMovies, movies } = this.props;
 
     // Cache values are available so we avoid fetching new data
-    if (movies.length) { return; }
+    if (movies && movies.length) { return; }
 
     fetchMovies && fetchMovies();
   }

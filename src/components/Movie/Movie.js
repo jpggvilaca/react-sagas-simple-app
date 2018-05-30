@@ -24,6 +24,7 @@ export class Movie extends Component {
 };
 
 Movie.propTypes = { selectedMovie: object };
+Movie.defaultProps = { selectedMovie: {} };
 Movie.displayName = 'Movie';
 
 export default connect(mapStateToProps, null)(Movie);

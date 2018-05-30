@@ -11,6 +11,18 @@
   font-size: 24px;
 }
 
+.title:before {
+  content: '';
+  background-image: url('https://placeimg.com/200/160/any/sepia');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+  width: 160px;
+  height: 200px;
+  margin-bottom: 20px;
+}
+
 .description {
   font-size: 18px;
   margin-top: 40px;

@@ -30,7 +30,7 @@ export class MovieList extends Component {
               className={styles.movie}
               onClick={this.triggerMovieDetails}
             >
-              {movie.title}
+              <span>{movie.title}</span>
             </li>
           ))
         }
