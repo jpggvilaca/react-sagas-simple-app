@@ -9,4 +9,6 @@
 
 * Api: Ghibli ( https://ghibliapi.herokuapp.com/ )
 
+* Node >= 7.5.0
+
 Note: This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
